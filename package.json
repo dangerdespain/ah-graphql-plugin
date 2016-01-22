@@ -1,0 +1,49 @@
+{
+  "author": {
+    "name": "Devin Despain",
+    "email": "devin@dspa.in"
+  },
+  "name": "ah-facebook-oauth-plugin",
+  "description": "I provide OAuth utilities for ActionHero",
+  "version": "0.0.1",
+  "homepage": "https://github.com/dangerdespain/ah-facebook-oauth-plugin",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com/ah-facebook-oauth-plugin.git"
+  },
+  "keywords": [
+    "actionhero",
+    "ah",
+    "formatting",
+    "validation",
+    "tag",
+    "tags",
+    "utility",
+    "utilities"
+  ],
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "dependencies": {
+    "babel-core": "^6.4.5",
+    "bluebird": "^3.1.1",
+    "fs": "0.0.2",
+    "graphql": "^0.4.14"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {},
+  "bugs": {
+    "url": "https://github.com/dangerdespain/ah-facebook-oauth-plugin/issues"
+  },
+  "maintainers": [
+    {
+      "name": "dangerdespain",
+      "email": "devin@dspa.in"
+    }
+  ],
+  "scripts": {
+    "postinstall": "scripts/postinstall.js"
+  },
+  "directories": {},
+  "readme": "ERROR: No README data found!"
+}
