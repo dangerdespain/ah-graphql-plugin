@@ -3,21 +3,21 @@
     "name": "Devin Despain",
     "email": "devin@dspa.in"
   },
-  "name": "ah-facebook-oauth-plugin",
-  "description": "I provide OAuth utilities for ActionHero",
+  "name": "ah-graphql-plugin",
+  "description": "I provide GraphQL support for ActionHero",
   "version": "0.0.1",
-  "homepage": "https://github.com/dangerdespain/ah-facebook-oauth-plugin",
+  "homepage": "https://github.com/dangerdespain/ah-graphql-plugin",
   "repository": {
     "type": "git",
-    "url": "git@github.com/ah-facebook-oauth-plugin.git"
+    "url": "git@github.com/ah-graphql-plugin.git"
   },
   "keywords": [
     "actionhero",
     "ah",
-    "formatting",
-    "validation",
-    "tag",
-    "tags",
+    "graph",
+    "api",
+    "fb",
+    "graphql",
     "utility",
     "utilities"
   ],
@@ -33,7 +33,7 @@
   "devDependencies": {},
   "optionalDependencies": {},
   "bugs": {
-    "url": "https://github.com/dangerdespain/ah-facebook-oauth-plugin/issues"
+    "url": "https://github.com/dangerdespain/ah-graphql-plugin/issues"
   },
   "maintainers": [
     {
@@ -44,6 +44,5 @@
   "scripts": {
     "postinstall": "scripts/postinstall.js"
   },
-  "directories": {},
-  "readme": "ERROR: No README data found!"
+  "directories": {}
 }

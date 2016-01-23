@@ -19,25 +19,26 @@ module.exports = {
 
       var filename = api.projectRoot + schema.path;
       
-      api.watchFileAndAct(filename, function(){
-        init();
-        api.log('\r\n\r\n*** rebooting due to graphql schema change (' + filename + ') ***\r\n\r\n', 'info');
-        api.commands.restart.call(api._self);
-      })
+      // api.watchFileAndAct(filename, function(){
+      //   init();
+      //   api.log('\r\n\r\n*** rebooting due to graphql schema change (' + filename + ') ***\r\n\r\n', 'info');
+      //   api.commands.restart.call(api._self);
+      // })
 
       function init(){
 
-        var schema = babel.transformFileSync(filename, {}).code;
+        var schematext = babel.transformFileSync(filename, {}).code;
 
         var distFilename = filename + '.es'      
 
-        return fs.writeFileAsync(distFilename, schema).bind({ filename : distFilename })
+        return fs.writeFileAsync(distFilename, schematext).bind({ filename : distFilename, schema : schema })
         .then(function(res){
-          api.graphql.schemas[schema.endpoint] = require(this.filename)(api);
+          api.graphql.schemas[this.schema.endpoint] = require(this.filename)(api);
         })
 
       }
 
+      return init();
       
     }).then(function(){
       next();

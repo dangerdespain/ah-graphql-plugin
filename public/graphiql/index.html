@@ -58,7 +58,7 @@ https://cdnjs.cloudflare.com/ajax/libs/fetch/0.11.0/fetch.js"></script>
       }
       // Defines a GraphQL fetcher using the fetch API.
       function graphQLFetcher(graphQLParams) {
-        return fetch('http://localhost:8080/api/graphql', {
+        return fetch('http://localhost:8080/api/graph', {
           method: 'post',
           headers: { 'Content-Type': 'application/json' },
           credentials: 'include',
