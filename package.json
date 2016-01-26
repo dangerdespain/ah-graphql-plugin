@@ -28,7 +28,9 @@
     "babel-core": "^6.4.5",
     "bluebird": "^3.1.1",
     "fs": "0.0.2",
-    "graphql": "^0.4.14"
+    "graphql": "^0.4.14",
+    "json-safe-parse": "^3.3.12",
+    "underscore": "*"
   },
   "devDependencies": {},
   "optionalDependencies": {},
@@ -41,8 +43,7 @@
       "email": "devin@dspa.in"
     }
   ],
-  "scripts": {
-    "postinstall": "scripts/postinstall.js"
-  },
+  "license": "Apache-2.0",
   "directories": {}
 }
+ 

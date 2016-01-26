@@ -3,9 +3,8 @@ exports.default = {
     return {
        
       schemas : [{
-      	endpoint : '/graph', // for GET/POST routes
-      	path : '/graph/schema.js',
-      	action : 'graph',
+      	name : 'graph',
+      	path : '/graph/index.js',
       }]
 
     };

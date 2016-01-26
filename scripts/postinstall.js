@@ -14,13 +14,18 @@ var projectSchemaFile = path.normalize(process.cwd() + '/../../graph/schema.js')
 
 try {
   fs.lstatSync(projectConfigFile);
-  fs.lstatSync(projectSchemaFile);
 } catch (ex) {
   //unable to stat file because it doesn't exist
   console.log("copying " + localConfigFile + " to " + projectConfigFile);
   mkdirp.sync(path.normalize(projectConfigDir));
   fs.createReadStream(localConfigFile).pipe(fs.createWriteStream(projectConfigFile));
+}
 
+
+try {
+  fs.lstatSync(projectSchemaFile);
+} catch (ex) {
+  //unable to stat file because it doesn't exist
   console.log("copying " + localSchemaFile + " to " + projectSchemaFile);
   mkdirp.sync(path.normalize(projectSchemaDir));
   fs.createReadStream(localSchemaFile).pipe(fs.createWriteStream(projectSchemaFile));

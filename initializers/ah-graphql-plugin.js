@@ -1,6 +1,7 @@
 var Promise = require('bluebird');
 var fs = Promise.promisifyAll(require('fs'));
 var babel = require("babel-core");
+var _ = require('underscore');
 
 module.exports = {
 
@@ -10,14 +11,19 @@ module.exports = {
       schemas : {},
     }
 
-    Promise.each(api.config.graphql.schemas, function(schema){
+    Promise.each(api.config.graphql.schemas, function(schemaOpts){
+      schemaOpts = schemaOpts || {}
+      var name = schemaOpts.name || 'graph'
+      var schemaOpts = _.defaults(schemaOpts || {},{
+        endpoint : '/' + name, // for GET/POST routes
+        action : name,
+        schemaName : name
+      });
       
-      var schema = schema;
-      
-      api.routes.registerRoute('get', schema.endpoint, schema.getAction, 1, true)
-      api.routes.registerRoute('post', schema.endpoint, schema.mutateAction, 1, true)
+      api.routes.registerRoute('get', schemaOpts.endpoint, schemaOpts.getAction, 1, true)
+      api.routes.registerRoute('post', schemaOpts.endpoint, schemaOpts.mutateAction, 1, true)
 
-      var filename = api.projectRoot + schema.path;
+      var filename = api.projectRoot + schemaOpts.path;
       
       // api.watchFileAndAct(filename, function(){
       //   init();
@@ -29,11 +35,18 @@ module.exports = {
 
         var schematext = babel.transformFileSync(filename, {}).code;
 
-        var distFilename = filename + '.es'      
+        var distFilename = filename + '.es5';
 
-        return fs.writeFileAsync(distFilename, schematext).bind({ filename : distFilename, schema : schema })
+        var schema = { // optional passthroughs for graph libraries built for / compatible with Actionhero
+          actionhero_API : { api : api }
+        } 
+
+        return fs.writeFileAsync(distFilename, schematext).bind({ filename : distFilename, schema : schema, schemaOpts : schemaOpts })
         .then(function(res){
-          api.graphql.schemas[this.schema.endpoint] = require(this.filename)(api);
+          var schema = require(this.filename);
+          if(schema.schema) schema = schema.schema;
+          if(_.isFunction(schema)) schema = schema(this.schema);
+          api.graphql.schemas[this.schemaOpts.endpoint] = schema
         })
 
       }

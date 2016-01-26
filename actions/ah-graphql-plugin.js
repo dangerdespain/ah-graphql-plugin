@@ -1,4 +1,5 @@
 var graphql = require('graphql').graphql;
+var parse = require('json-safe-parse');
 
 exports.graph = {
   name: 'graph',
@@ -13,10 +14,16 @@ exports.graph = {
 
   run: function (api, data, next) {
 
-    graphql(api.graphql.schemas['/graphql'], data.params.query, '', data.params.variables)
-    .then(function(res){
-      data.response = res
-      next();
+    new Promise(function(resolve, reject){
+      var query = data.params.query
+      var variables = parse(data.params.variables)
+
+      graphql(api.graphql.schemas['/graph'], query, data, variables)
+      .then(function(res){
+        data.response = res
+        next();
+      })
+
     }).catch(function(err){
       next(err);
     })
