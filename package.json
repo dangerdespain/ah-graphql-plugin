@@ -9,7 +9,7 @@
   "homepage": "https://github.com/dangerdespain/ah-graphql-plugin",
   "repository": {
     "type": "git",
-    "url": "git@github.com/ah-graphql-plugin.git"
+    "url": "https://github.com/dangerdespain/ah-graphql-plugin"
   },
   "keywords": [
     "actionhero",
@@ -30,7 +30,7 @@
     "fs": "0.0.2",
     "graphql": "^0.4.14",
     "json-safe-parse": "^0.0.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3n"
   },
   "devDependencies": {},
   "optionalDependencies": {},
