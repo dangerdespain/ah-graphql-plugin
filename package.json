@@ -29,8 +29,8 @@
     "bluebird": "^3.1.1",
     "fs": "0.0.2",
     "graphql": "^0.4.14",
-    "json-safe-parse": "^3.3.12",
-    "underscore": "*"
+    "json-safe-parse": "^0.0.2",
+    "underscore": "^1.8.3"
   },
   "devDependencies": {},
   "optionalDependencies": {},

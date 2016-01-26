@@ -24,7 +24,7 @@ module.exports = {
       api.routes.registerRoute('post', schemaOpts.endpoint, schemaOpts.mutateAction, 1, true)
 
       var filename = api.projectRoot + schemaOpts.path;
-      
+
       // api.watchFileAndAct(filename, function(){
       //   init();
       //   api.log('\r\n\r\n*** rebooting due to graphql schema change (' + filename + ') ***\r\n\r\n', 'info');
@@ -45,7 +45,9 @@ module.exports = {
         .then(function(res){
           var schema = require(this.filename);
           if(schema.schema) schema = schema.schema;
+          console.log('filename', schema)
           if(_.isFunction(schema)) schema = schema(this.schema);
+          console.log('filename', schema)
           api.graphql.schemas[this.schemaOpts.endpoint] = schema
         })
 
