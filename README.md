@@ -7,7 +7,10 @@ Under active development
 - install this plugin: `npm install ah-graphql-plugin --save`
 
 - extend public web server in config/api.js *paths* object
-``` 'public':      [ 
+
+```js
+'public':      [ 
   __dirname + '/../public',
   __dirname + '/../node_modules/ah-graphql-plugin/public',
-] ```
+] 
+```
