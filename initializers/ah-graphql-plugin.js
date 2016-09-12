@@ -33,7 +33,9 @@ module.exports = {
 
       function init(){
 
-        var schematext = babel.transformFileSync(filename, {}).code;
+        var schematext = babel.transformFileSync(filename, {
+          presets : ['es2015']
+        }).code;
 
         var distFilename = filename + '.es5';
 
