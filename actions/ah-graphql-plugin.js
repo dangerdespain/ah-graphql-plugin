@@ -4,27 +4,37 @@ var parse = require('json-safe-parse');
 exports.graph = {
   name: 'graph',
   description: 'Graph Endpoint',
+  scopes : ['public'],
   middleware: [],
-  version : 1,
 
   inputs: {
-    variables : {},
+    variables : {
+      default : function(){ return '{}' }
+    },
     query : {},
   },
 
   run: function (api, data, next) {
 
     new Promise(function(resolve, reject){
-      var query = data.params.query
-      var variables = parse(data.params.variables)
 
-      graphql(api.graphql.schemas['/graph'], query, data, variables)
+      var query = data.params.query
+      var variables = data.params.variables;
+
+      try {
+        variables = JSON.parse(variables)
+      }catch(e){
+
+      }
+
+      graphql(api.graphql.schemas['/graph'], query, data, api, variables)
       .then(function(res){
         data.response = res
         next();
       })
-
+      
     }).catch(function(err){
+      console.log(err)
       next(err);
     })
     

@@ -9,8 +9,8 @@ var localConfigFile   = path.normalize(__dirname + '/../config/ah-graphql-plugin
 var projectConfigFile = path.normalize(process.cwd() + '/../../config/ah-graphql-plugin.js');
 
 var projectSchemaDir = path.normalize(process.cwd() + '/../../graph/');
-var localSchemaFile   = path.normalize(__dirname + '/../graph/schema.js');
-var projectSchemaFile = path.normalize(process.cwd() + '/../../graph/schema.js');
+var localSchemaFile   = path.normalize(__dirname + '/../graph/index.js');
+var projectSchemaFile = path.normalize(process.cwd() + '/../../graph/index.js');
 
 try {
   fs.lstatSync(projectConfigFile);
