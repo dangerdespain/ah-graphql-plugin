@@ -17,7 +17,12 @@ Under active development
 ] 
 ```
 
-- many graphql examples are written in ES6. I'm using gulp-babel to transpile for my use-case. Here's an example
+## Use
+Start the server and you should have a GraphiQL interface ready at http://localhost:8080/graphiql/
+The example graph directory will need some work before it's tutorial-ready. I'm actively seeking pull requests here!
+
+## Transpiling
+- many graphql examples are written in ES6. I'm using gulp-babel to transpile for my use-case. Here's an example. Make sure to update your ah-graphq-config file to reflect the babel output path!
 
 `npm install --save-dev gulp gulp-babel babel-preset-es2015 changed eslint del fs`
 
