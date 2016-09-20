@@ -22,7 +22,7 @@ Under active development
 `npm install --save-dev gulp gulp-babel babel-preset-es2015 changed eslint del fs`
 
 /gulpfile.js
-`
+```
 var gulp = require("gulp");
 var babel = require("gulp-babel");
 var changed = require('gulp-changed');
@@ -66,4 +66,4 @@ gulp.task('lint', () => {
 gulp.task('default', ['build'], function() {
  return gulp.start('watch');
 });
-`
+```
