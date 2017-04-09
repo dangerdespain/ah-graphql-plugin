@@ -31,10 +31,13 @@ exports.graph = {
       .then(function(res){
         data.response = res
         next();
+      }).catch(function(err){
+        next(err);
       })
       
-    }).catch(function(err){
-      console.log(err)
+    })
+    .catch(function(err){
+      api.log('error',err)
       next(err);
     })
     
